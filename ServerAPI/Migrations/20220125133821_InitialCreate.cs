@@ -38,6 +38,21 @@ namespace ServerAPI.Migrations
                 {
                     table.PrimaryKey("PK_Garcons", x => x.GarcomId);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Localizacoes",
+                columns: table => new
+                {
+                    LocalizacaoId = table.Column<long>(type: "bigint", nullable: false),
+                    Latitude = table.Column<double>(type: "float", nullable: false),
+                    Longitude = table.Column<double>(type: "float", nullable: false),
+                    EntityId = table.Column<long>(type: "bigint", nullable: true),
+                    OperacaoSincronismo = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Localizacoes", x => x.LocalizacaoId);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -47,6 +62,9 @@ namespace ServerAPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "Garcons");
+
+            migrationBuilder.DropTable(
+                name: "Localizacoes");
         }
     }
 }

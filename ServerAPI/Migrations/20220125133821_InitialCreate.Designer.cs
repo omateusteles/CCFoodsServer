@@ -12,7 +12,7 @@ using ServerAPI.Persistencia;
 namespace ServerAPI.Migrations
 {
     [DbContext(typeof(CCFoodsContext))]
-    [Migration("20220106200159_InitialCreate")]
+    [Migration("20220125133821_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -70,6 +70,28 @@ namespace ServerAPI.Migrations
                     b.HasKey("GarcomId");
 
                     b.ToTable("Garcons");
+                });
+
+            modelBuilder.Entity("ServerAPI.Models.LocalizacaoEntregador", b =>
+                {
+                    b.Property<long?>("LocalizacaoId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("EntityId")
+                        .HasColumnType("bigint");
+
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
+
+                    b.Property<int>("OperacaoSincronismo")
+                        .HasColumnType("int");
+
+                    b.HasKey("LocalizacaoId");
+
+                    b.ToTable("Localizacoes");
                 });
 #pragma warning restore 612, 618
         }

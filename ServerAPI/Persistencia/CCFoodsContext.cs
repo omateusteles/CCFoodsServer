@@ -8,5 +8,6 @@ namespace ServerAPI.Persistencia
         public CCFoodsContext(DbContextOptions<CCFoodsContext> options) : base(options) { }
         public DbSet<Garcom> Garcons { get; set; }
         public DbSet<ConfiguracaoDispositivo> ConfiguracoesDispositivos { get; set; }
+        public DbSet<LocalizacaoEntregador> Localizacoes { get; set; }
     }
 }

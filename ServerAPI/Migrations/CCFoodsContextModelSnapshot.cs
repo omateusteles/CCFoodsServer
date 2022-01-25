@@ -69,6 +69,28 @@ namespace ServerAPI.Migrations
 
                     b.ToTable("Garcons");
                 });
+
+            modelBuilder.Entity("ServerAPI.Models.LocalizacaoEntregador", b =>
+                {
+                    b.Property<long?>("LocalizacaoId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("EntityId")
+                        .HasColumnType("bigint");
+
+                    b.Property<double>("Latitude")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("float");
+
+                    b.Property<int>("OperacaoSincronismo")
+                        .HasColumnType("int");
+
+                    b.HasKey("LocalizacaoId");
+
+                    b.ToTable("Localizacoes");
+                });
 #pragma warning restore 612, 618
         }
     }
